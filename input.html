@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess The Author</title>
+</head>
+<body>
+    <h1>Guess the Author</h1>
+
+    <form>
+        <label for="hidden_author">The hidden author name</label>
+        <input type="password" id="hidden_author" name="hidden_author" value="Dickens"> <br>
+
+        <label for="guess_author">Guess the author</label>
+        <input type="text" id="guess_author" name="guess_author" autofocus> <br>
+
+        <input type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        var good = 0;
+        var oops = 0;
+        function checkAuthor(){
+            var hiddenAuthor = document.getElementById("hidden_author").value ;
+            var author = document.getElementById("guess_author").value;
+            
+            var res_element = document.getElementById("result");
+            if(hiddenAuthor == author){
+                good = good + 1;
+                alert("You got it right");
+            } else {
+                oops = oops + 1;
+                alert("Sorry");
+            }
+
+            
+            res_element.innerHTML = "Good: " + good + "<br> Oops: " + oops;
+        }
+    </script>
+</body>
+</html>
