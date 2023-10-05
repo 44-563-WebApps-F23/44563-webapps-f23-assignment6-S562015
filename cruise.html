@@ -23,7 +23,7 @@
   ></script>
 
   <body>
-    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <a href="author.html" class="navbar-brand">Author</a>
       <button
         class="navbar-toggler"
@@ -47,7 +47,7 @@
           </li>
         </ul>
       </div>
-    </nav> -->
+    </nav>
     <main class="container">
       <h1><i>Nagarjuna Reddy, Kunkala goes on a cruise</i></h1>
       <div>
@@ -90,43 +90,22 @@
  
 
       <div id="result"></div>
-
     </main>
-
     <script>
-
       let my_cruise = {};
-
       function selectCruise() {
-
         my_cruise = {};
-
         my_cruise.shared = document.getElementById("inputCabin").checked;
-
         my_cruise.breakfast = document.getElementById("inputBreakFast").checked;
-
         my_cruise.pool = document.getElementById("inputPoolPass").checked;
-
         document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
-
- 
-
-        // my_cruise.shared = document.getElementById("inputCabin").checked;
-
       }
-
       const updateCruise = () => {
-
         const days = document.getElementById("daysInput").value;
-
         const price = document.getElementById("priceInput").value;
-
         my_cruise["days"] = days;
-
         my_cruise["price"] = price;
-
         document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
-
       };
 
     </script>
