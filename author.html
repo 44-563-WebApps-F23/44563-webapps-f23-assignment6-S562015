@@ -39,5 +39,32 @@
             res_element.innerHTML = "Good: " + good + "<br> Oops: " + oops;
         }
     </script>
+
+    <div>
+        <img id="cityImage" src="./katmandu.jpg" alt="Katmandu" width="100" height="100" onclick="selectImage()">
+    </div>
+    <script>
+        var useImage = 1;
+        function selectImage() {
+            var image = document.getElementById('cityImage');
+
+            switch (useImage) {
+                case 1:
+                    image.src = './katmandu.jpg';
+                    useImage = 2;
+                    break;
+                case 2:
+                    image.src = './kuching.jpg';
+                    useImage = 3;
+                    break;
+                case 3:
+                    image.src = './london.jpg';
+                    useImage = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>
