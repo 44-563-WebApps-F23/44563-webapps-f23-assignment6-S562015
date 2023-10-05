@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tips Calculator</title>
+  </head>
+  <meta charset="utf-8" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a href="author.html" class="navbar-brand">Author</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-menu"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="Tips.html" class="nav-link">TIPS</a>
+          </li>
+          <li class="nav-item">
+            <a href="cruise.html" class="nav-link">Cruise</a>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+    <h1>Nagarjuna Reddy, Kunkala shows tip amounts</h1>
+    <form>
+      <label for="form1_amount">Enter base amount </label>
+      <input type="number" id="form1_amount" name="form1_amount" value="50" />
+      <label for="form1_nick">Enter tip percent </label>
+      <input type="number" id="tip_percentage" name="form1_nick" value="15" />
+      <input type="button" onclick="tips()" value="Show tip" />
+    </form>
+
+    <p id="result"></p>
+
+    <form>
+      <label for="cal-add">
+        <input
+          type="radio"
+          placeholder="cal-add"
+          name="calTips"
+          id="cal-add"
+          value="cal-add"
+          onclick="chooseOp()"
+        />
+        sum </label
+      ><label for="cal-subt">
+        <input
+          type="radio"
+          name="calTips"
+          placeholder="cal-subt"
+          id="cal-subt"
+          value="cal-subt"
+          onclick="chooseOp()"
+        />
+        difference </label
+      ><label for="cal-mult">
+        <input
+          type="radio"
+          name="calTips"
+          placeholder="product"
+          id="cal-mult"
+          value="mult"
+          onclick="chooseOp()"
+        />
+        product
+      </label>
+    </form>
+    <p id="result2"></p>
+
+    <script>
+      function tips() {
+        let basePrice = document.getElementById("form1_amount").value;
+        let tipPrice = Number(document.getElementById("tip_percentage").value);
+        let myOutput = "";
+        for (let i = 0; i < 5; i++) {
+          const calculatedTip = basePrice * (tipPrice / 100);
+          myOutput += `${tipPrice}% is ${calculatedTip.toFixed(2)}; `;
+          tipPrice += 4;
+        }
+        document.getElementById("result").innerHTML = `Tips are: ${myOutput}`;
+      }
+
+      function chooseOp() {
+        let basePrice = Number(document.getElementById("form1_amount").value);
+        let tipPrice = Number(document.getElementById("tip_percentage").value);
+        let inputAdd = document.getElementById("cal-add");
+        let inputSubt = document.getElementById("cal-subt");
+        let inputMult = document.getElementById("cal-mult");
+        let output;
+        let label;
+        if (inputAdd.checked) {
+          output = basePrice + tipPrice;
+          label = inputAdd.placeholder;
+        } else if (inputSubt.checked) {
+          output = basePrice - tipPrice;
+          label = inputSubt.placeholder;
+        } else if (inputMult.checked) {
+          label = inputMult.placeholder;
+          output = basePrice * tipPrice;
+        }
+        document.getElementById(
+          "result2"
+        ).innerHTML = `${label} of ${basePrice} and ${tipPrice} is ${output}`;
+      }
+    </script>
+  </body>
+</html>
